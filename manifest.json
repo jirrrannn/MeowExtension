@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "Cats On Your Tab",
+    "version": "1.0",
+    "description": "Add cats to your Chrome pages.",
+    "permissions": ["tabs","storage", "scripting", "activeTab"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "host_permissions": ["<all_urls>"],
+    "content_scripts": [
+      {
+        "js": ["content.js"],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "web_accessible_resources":[{
+      "resources": ["assets/cat_walk_sprite.png"],
+      "matches": ["<all_urls>"]
+
+    }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+          "16": "assets/icon16.png",
+          "32": "assets/icon32.png",
+          "48": "assets/icon48.png",
+          "128": "assets/icon128.png"
+        }
+      }
+  }
+  
